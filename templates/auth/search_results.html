@@ -1,0 +1,57 @@
+{% extends 'auth/main_template.html' %}
+{% block title %}
+	Search Results
+{% endblock title %}
+{% block content %}
+
+{% load static %}
+
+	<!-- content-section 
+	================================================== -->
+		<section id="content-section">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-lg-8">
+						<!-- search-results box -->
+						<div class="search-results-box">
+							<div class="search-results-banner">
+								<h1>Search results for  <span>'{{query}}'</span></h1>
+							</div>
+							<div class="search-box">
+								<form class="search-form" action="search-news" method="get">
+									<input class="form-control mr-sm-2" id="search" type="search" value="{{query}}" name="query" placeholder="Search for..." aria-label="Search">
+									<button class="my-2 btn btn-primary my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+								</form>
+							</div>
+						</div>
+						<!-- End search-results box -->
+
+						<!-- Posts-block -->
+						<div class="posts-block articles-box">
+							{% for item in context.data %}
+							<div class="news-post article-post">
+								<div class="row">
+									<div class="col-sm-4">
+										<div class="post-image">
+											<a href="single-post">
+												<img src="{{item.image}}" alt="">
+											</a>
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<h2><a href="{{item.url}}">{{item.title}}</a></h2>
+										<p>{{item.description}}</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<!-- End Posts-block -->
+					</div>
+				</div>
+			</div>
+		</section>
+	<!-- End content section -->
+{% endblock content %}
+

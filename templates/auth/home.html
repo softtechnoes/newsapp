@@ -1,0 +1,676 @@
+{% extends 'auth/main_template.html' %}
+{% block title %}
+	Homepage
+{% endblock title %}
+{% block content %}
+<!-- <h2>grokonez.com</h2> -->
+
+<!-- {% if user.is_authenticated %}
+	<p>Hi {{ user.full_name }}, Welcome to grokonez!</p>
+	<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+	<p>You are not logged in!</p>
+	<a href="{% url 'login' %}">Log In</a> / 
+	<a href="{% url 'signup' %}">Sign Up</a>
+{% endif %} -->
+
+{% load static %}
+<!-- top-news-section 
+			================================================== -->
+
+
+			<div class="top-news-section">
+				
+				<!-- <div class="mb-3 card box" style="max-width: 640px; margin:auto;">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title"><a href="{{value.url}}" target="_blanck">{{value.title}}</a></h5>
+								<p class="card-text">{{value.description}}</p>
+								<p class="card-text"><small class="text-muted">{{value.publishedat}}</small></p>
+							</div>
+						</div>
+		
+						<div class="col-md-4 img-box">
+							<img src="{{value.image}}" class="card-img" alt="..." height="100%">
+						</div>
+					</div>
+				</div> -->
+
+				<!-- {{context1}} -->
+
+				{% for value in context.data %}
+					<div class="news-post image-post smaller" style="padding:5px">
+						<img src="{{value.image}}" class="card-img" alt="..." style="height:221px">
+						<div class="hover-box">
+							<a href="#" class="category">mobile</a>
+							<h2><a href="{{value.url}}" target="_blanck">{{value.title}}</a></h2>
+						</div>
+					</div>
+				{% endfor %}
+				
+			</div>
+
+
+
+
+			<!-- <div class="top-news-section">
+				<div class="news-post image-post smaller">
+					<img src="{% static 'upload/blog/s4.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">mobile</a>
+						<h2><a href="single-post.html">Google Project Fi will no longer charge you for more than 6GB of data</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="news-post image-post org-hov">
+					<img src="{% static 'upload/blog/1.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">electronic</a>
+						<h2><a href="single-post.html">Microsoft’s E3 2018 showcase may break from the typical formula</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="news-post image-post smaller pink-hov">
+					<img src="{% static 'upload/blog/s9.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">Apple</a>
+						<h2><a href="single-post.html">Our vision has always been to create an iPhone that is entirely screen.</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="news-post image-post blue-hov">
+					<img src="{% static 'upload/blog/2.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">Design</a>
+						<h2><a href="single-post.html">The display employs new techniques and technology to precisely.</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="news-post image-post smaller yell-hov">
+					<img src="{% static 'upload/blog/s7.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">Technology</a>
+						<h2><a href="single-post.html">Face ID is so secure you can use it with Apple Pay.</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="news-post image-post smaller red-hov">
+					<img src="{% static 'upload/blog/s8.jpg' %}" alt="">
+					<div class="hover-box">
+						<a href="#" class="category">Tablet</a>
+						<h2><a href="single-post.html">Android Oreo only on 0.7 percent of active devices,</a></h2>
+						<ul class="post-tags">
+							<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+							<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div> -->
+			<!-- End top-news-section -->
+	
+			<!-- content-section 
+				================================================== -->
+			<section id="content-section">
+	
+				<div class="container">
+	
+					<!-- Posts-block -->
+					<div class="posts-block featured-box">
+						<div class="title-section">
+							<h1>Headlines</h1>
+						</div>
+						<div class="owl-wrapper">
+							<div class="owl-carousel" data-num="4">
+								
+								{% for item in context1.data %}
+								<div class="item">
+									<div class="news-post standart-post">
+										<div class="post-image">
+											<a href="{{item.url}}">
+												<img src="{{item.image}}" alt="">
+											</a>
+											<a href="#" class="category">Mobile</a>
+										</div>
+										<h2><a href="{{item.url}}">{{item.title}}</a></h2>
+										<ul class="post-tags">
+											<li>{{item.publishedat}}</li>
+										</ul>
+									</div>
+								</div>
+								{% endfor %}
+							
+							</div>
+						</div>
+						
+					</div>
+					<!-- End Posts-block -->
+	
+					<div class="row">
+						<div class="col-lg-8">
+							
+							<!-- Posts-block -->
+							<div class="posts-block standard-box">
+								<div class="title-section">
+									<h1>Latest News</h1>
+								</div>
+								<div class="row">
+									{% for item in context1.data %}
+										<div class="col-sm-6">
+											<div class="news-post standart-post">
+												<div class="post-image">
+													<a href="{{item.url}}">
+														<img src="{{item.image}}" alt="">
+													</a>
+													<a href="#" class="category"></a>
+												</div>
+												<h2><a href="{{item.url}}">New alternatives are more productive</a></h2>
+												<ul class="post-tags">
+													<li><i class="lnr lnr-user"></i>by <a href="#">{{item.author}}</a></li>
+													<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+													<li><i class="lnr lnr-eye"></i>872 Views</li>
+												</ul>
+												<!-- <p>Eight candidates are seeking to oust Zeman, whose inclination toward.</p> -->
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+							<!-- End Posts-block -->
+						</div>
+	
+						<div class="col-lg-4 sidebar-sticky">
+							
+							<!-- Sidebar -->
+							<div class="sidebar theiaStickySidebar">
+								<!-- <div class="widget news-widget">
+									<h1>Featured Post</h1>
+									<div class="news-post image-post">
+										<img src="upload/blog/h1.jpg" alt="">
+										<div class="hover-box">
+											<a href="#" class="category">Technology</a>
+											<h2><a href="single-post.html">Face ID is so secure you can use it with Apple Pay.</a></h2>
+											<ul class="post-tags">
+												<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+												<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+											</ul>
+										</div>
+									</div>
+								</div> -->
+								<div class="widget news-widget">
+									<h1>Breaking News</h1>
+									<ul class="list-news">
+										{% for item in context1.data %}
+											<li>
+												<h2><a href="{{item.url}}">{{item.title}}</a></h2>
+											</li>
+										{% endfor %}
+									</ul>
+								</div>
+	
+								<!-- <div class="advertisement">
+									<a href="#"><img src="upload/addsense/300x250.jpg" alt=""></a>
+								</div> -->
+	
+							</div>
+	
+						</div>
+					</div>
+	
+					<!-- Post-block -->
+					<!-- <div class="post-block video-section">
+						<div class="row">
+							<div class="col-lg-8">
+	
+								<div class="video-holder">
+	
+									<div class="title-section">
+										<h1>Video News</h1>
+									</div>
+	
+									<div class="news-post video-post">
+										<img src="upload/blog/lg1.jpg" alt="">
+										<div class="hover-box">
+											<a href="#" class="category">Technology</a>
+											<h2><a href="single-post.html">Face ID is so secure you can use it with Apple Pay.</a></h2>
+											<a href="single-post.html"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+										</div>
+									</div>
+	
+									<div class="video-links">
+	
+										<div class="news-post video-post style2">
+											<div class="post-image">
+												<img src="upload/blog/s4.jpg" alt="">
+												<a href="single-post.html">
+													<i class="fa fa-youtube-play" aria-hidden="true"></i>
+												</a>
+											</div>
+											<h2><a href="single-post.html">Google Project Fi will no longer charge you for more than 6GB of data</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+										</div>
+	
+										<div class="news-post video-post style2">
+											<div class="post-image">
+												<img src="upload/blog/s8.jpg" alt="">
+												<a href="single-post.html">
+													<i class="fa fa-youtube-play" aria-hidden="true"></i>
+												</a>
+											</div>
+											<h2><a href="single-post.html">Face ID is so secure you can use it with Apple Pay.</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+										</div>
+	
+										<div class="news-post video-post style2">
+											<div class="post-image">
+												<img src="upload/blog/s12.jpg" alt="">
+												<a href="single-post.html">
+													<i class="fa fa-youtube-play" aria-hidden="true"></i>
+												</a>
+											</div>
+											<h2><a href="single-post.html">Our vision has always been to create</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+										</div>
+	
+									</div>
+	
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<div class="title-section">
+									<h1>Weekly Featured</h1>
+								</div>
+	
+								<div class="news-post standart-post">
+									<div class="post-image">
+										<a href="single-post">
+											<img src="upload/blog/s5.jpg" alt="">
+										</a>
+										<a href="#" class="category">Apple</a>
+									</div>
+									<h2><a href="single-post.html">Our vision has always been to create an iPhone that is entirely screen.</a></h2>
+									<ul class="post-tags">
+										<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+										<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+										<li><i class="lnr lnr-eye"></i>872 Views</li>
+									</ul>
+								</div>
+	
+								<div class="news-post standart-post">
+									<div class="post-image">
+										<a href="single-post">
+											<img src="upload/blog/s6.jpg" alt="">
+										</a>
+										<a href="#" class="category">Design</a>
+									</div>
+									<h2><a href="single-post.html">The display employs new techniques and technology to precisely.</a></h2>
+									<ul class="post-tags">
+										<li><i class="lnr lnr-user"></i>by <a href="#">John Doe</a></li>
+										<li><a href="#"><i class="lnr lnr-book"></i><span>23 comments</span></a></li>
+										<li><i class="lnr lnr-eye"></i>872 Views</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div> -->
+					<!-- End Post-block -->
+	
+					<!-- Advertisement -->
+					<!-- <div class="advertisement">
+						<a href="#"><img src="upload/addsense/620x80grey.jpg" alt=""></a>
+					</div> -->
+					<!-- End Advertisement -->
+	
+					<div class="row">
+						<!-- <div class="col-lg-8"> -->
+	
+							<!-- Posts-block -->
+							<!-- <div class="posts-block articles-box">
+								<div class="title-section">
+									<h1>Mobile</h1>
+								</div>
+								
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s3.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<h2><a href="single-post.html">In an exciting series of market profiles, we’ve partnered with ClassPass</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s4.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<h2><a href="single-post.html">Since its launch in September 2015, FIRE has made a mark on the Malaysian</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s5.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<h2><a href="single-post.html">In Trump’s Remarks, Echoes of a Century-Old Racial Ranking</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s6.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<h2><a href="single-post.html">F.B.I. search warrants shed new light on the degree to which Stephen Paddock</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s7.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<h2><a href="single-post.html">Primary Wave, a boutique New York company that aggressively markets</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+										</div>
+									</div>
+								</div>
+								<ul class="pagination-list">
+									<li><a href="#">Prev</a></li>
+									<li><a href="#" class="active">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">...</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">Next</a></li>
+								</ul>
+	
+							</div> -->
+							<!-- End Posts-block -->
+	
+						<!-- </div> -->
+	
+						<!-- <div class="col-lg-4 sidebar-sticky">
+							<div class="sidebar theiaStickySidebar">
+								<div class="widget news-widget">
+									<h1>Today Featured</h1>
+									<ul class="small-posts">
+										<li>
+											<a href="single-post.html">
+												<img src="upload/blog/th1.jpg" alt="">
+											</a>
+											<div class="post-cont">
+												<h2><a href="single-post.html">Commentary: Spotify’s Unusual IPO Came at the Perfect Time</a></h2>
+											</div>
+										</li>
+										<li>
+											<a href="single-post.html">
+												<img src="upload/blog/th2.jpg" alt="">
+											</a>
+											<div class="post-cont">
+												<h2><a href="single-post.html">5 Key Things to Know About Haiti After Donald Trump's Insult</a></h2>
+											</div>
+										</li>
+										<li>
+											<a href="single-post.html">
+												<img src="upload/blog/th5.jpg" alt="">
+											</a>
+											<div class="post-cont">
+												<h2><a href="single-post.html">These Are All the Sam's Club Locations That Are Closing</a></h2>
+											</div>
+										</li>
+										<li>
+											<a href="single-post.html">
+												<img src="upload/blog/th8.jpg" alt="">
+											</a>
+											<div class="post-cont">
+												<h2><a href="single-post.html">Philip Dunne, sacked after his NHS remarks, must now face his constituents</a></h2>
+											</div>
+										</li>
+									</ul>
+								</div>
+	
+								<div class="widget subscribe-widget">
+									<form class="subscribe-form">
+										<h1>Subscribe to RSS Feeds</h1>
+										<input type="text" name="sumbscribe" id="subscribe" placeholder="Email"/>
+										<button id="submit-subscribe">
+											<i class="fa fa-arrow-circle-right"></i>
+										</button>
+										<p>Get all latest content delivered to your email a few times a month.</p>
+									</form>
+								</div>
+	
+								<div class="widget tags-widget">
+									<h1>Tags</h1>
+									<ul class="tags-list">
+										<li><a href="#">World</a></li>
+										<li><a href="#">Politic</a></li>
+										<li><a href="#">Travel</a></li>
+										<li><a href="#">Business</a></li>
+										<li><a href="#">Company</a></li>
+										<li><a href="#">Traditional</a></li>
+										<li><a href="#">Future</a></li>
+										<li><a href="#">Culture</a></li>
+									</ul>
+								</div>
+	
+							</div>
+	
+						</div> -->
+					</div>
+					
+					<!-- Posts-block -->
+					<!-- <div class="posts-block">
+						
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="title-section">
+									<h1>Apple</h1>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s2.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s3.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s9.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="title-section">
+									<h1>Tablets</h1>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s4.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s5.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+								<div class="news-post article-post">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post-image">
+												<a href="single-post">
+													<img src="upload/blog/s10.jpg" alt="">
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<h2><a href="single-post.html">New alternatives are more productive</a></h2>
+											<ul class="post-tags">
+												<li>JANUARY 12, 2018, 2:12 PM EST</li>
+											</ul>
+											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+											cillum dolore.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+	
+					</div> -->
+					<!-- End Posts-block -->
+	
+				</div>
+			</section>
+			<!-- End content section -->
+{% endblock content %}
+

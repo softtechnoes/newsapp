@@ -1,0 +1,120 @@
+{% extends 'auth/main_template.html' %}
+{% block title %}
+	Sign Up
+{% endblock title %}
+{% block content %}
+{% load static %}
+<!-- 
+<h2>grokonez.com Sign up</h2>
+
+<a href="{% url 'home' %}">Home</a> / 
+<a href="{% url 'login' %}">Login</a> -->
+
+<!-- <h2>Sign up</h2>
+<form method="post">
+	{% csrf_token %}
+	{% for field in form %}
+	<p>
+		{{ field.label_tag }}<br/>
+		{{ field }}
+		{% if field.help_text %}
+			<small style="color: green">{{ field.help_text }}</small>
+		{% endif %}
+		{% for error in field.errors %}
+			<p style="color: red">{{ error }}</p>
+		{% endfor %}
+	</p>
+	{% endfor %}
+	<button type="submit">Sign up</button>
+</form> -->
+
+<section id="content-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="contact-form-box">
+					<div class="title-section">
+						<h1><span>Sign Up</span></h1>
+					</div>
+					<form id="contact-form" method="post">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-md-6">
+								<label for="username">Username*</label>
+								<input id="username" name="username" type="text" class="form-control" required>
+								<small style="color: green">Enter the same password as before, for verification.</small>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="full_name">Full name</label>
+								<input id="full_name" name="full_name" type="text" class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="first_name">First name*</label>
+								<input id="first_name" name="first_name" type="text" class="form-control">
+								<small style="color: green">Required. 100 charaters of fewer.</small>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="last_name">Last name</label>
+								<input id="last_name" name="last_name" type="text" class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="email">Email</label>
+								<input id="email" name="email" type="email" class="form-control">
+							</div>
+						</div>
+
+						<!-- <div class="row">
+							<div class="col-md-6">
+								<label for="name">Age*</label>
+								<input id="name" name="age" type="number" class="form-control">
+							</div>
+						</div> -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="password1">Password*</label>
+								<input id="password1" name="password1" required type="password" class="form-control">
+								<ul>
+									<li><small style="color: green">Your password can’t be too similar to your other personal information.</small></li>
+									<li><small style="color: green">Your password must contain at least 8 characters.</small></li>
+									<li><small style="color: green">Your password can’t be a commonly used password.</small></li>
+									<li><small style="color: green">Your password can’t be entirely numeric.</small></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="password2">Password confirmation*</label>
+								<input id="password2" name="password2" type="password" class="form-control">
+								<small style="color: green">Enter the same password as before, for verification.</small>
+							</div>
+						</div>
+						<div class="row" style="margin-top:5px">
+							<div class="col-md-12">
+								<button type="submit">
+									<i class="fa fa-sign-in"></i> Signup
+								</button>
+							</div>
+						</div>
+
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock content %}
